@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35122.118
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReadingClubSystem", "ReadingClubSystem.csproj", "{8B81F9AE-3F58-4815-AB39-CC1F824A9527}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReadingClubSystem.Domain", "..\ReadingClubSystem.Domain\ReadingClubSystem.Domain.csproj", "{E13B6505-D85D-4CB5-93D3-41D01C44379A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReadingClubSystem.Web", "..\ReadingClubSystem.Web\ReadingClubSystem.Web.csproj", "{E4C9C01F-6DA1-4458-903D-A40A89DC984C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReadingClubSystem.Api", "..\ReadingClubSystem.Api\ReadingClubSystem.Api.csproj", "{04C60CA1-170A-42B3-BFE6-5E3C6B6EEA54}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReadingClubSystem.Infrastructure", "..\ReadingClubSystem.Infrastructure\ReadingClubSystem.Infrastructure.csproj", "{C414FDB7-4DBB-4739-A2D0-8B2AFC793EB2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReadingClubSystem.Application", "..\ReadingClubSystem.Application\ReadingClubSystem.Application.csproj", "{2F64DD1A-579E-4788-88B9-9582147B092E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8B81F9AE-3F58-4815-AB39-CC1F824A9527}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B81F9AE-3F58-4815-AB39-CC1F824A9527}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B81F9AE-3F58-4815-AB39-CC1F824A9527}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B81F9AE-3F58-4815-AB39-CC1F824A9527}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E13B6505-D85D-4CB5-93D3-41D01C44379A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E13B6505-D85D-4CB5-93D3-41D01C44379A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E13B6505-D85D-4CB5-93D3-41D01C44379A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E13B6505-D85D-4CB5-93D3-41D01C44379A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4C9C01F-6DA1-4458-903D-A40A89DC984C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4C9C01F-6DA1-4458-903D-A40A89DC984C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4C9C01F-6DA1-4458-903D-A40A89DC984C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4C9C01F-6DA1-4458-903D-A40A89DC984C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04C60CA1-170A-42B3-BFE6-5E3C6B6EEA54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04C60CA1-170A-42B3-BFE6-5E3C6B6EEA54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04C60CA1-170A-42B3-BFE6-5E3C6B6EEA54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04C60CA1-170A-42B3-BFE6-5E3C6B6EEA54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C414FDB7-4DBB-4739-A2D0-8B2AFC793EB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C414FDB7-4DBB-4739-A2D0-8B2AFC793EB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C414FDB7-4DBB-4739-A2D0-8B2AFC793EB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C414FDB7-4DBB-4739-A2D0-8B2AFC793EB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F64DD1A-579E-4788-88B9-9582147B092E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F64DD1A-579E-4788-88B9-9582147B092E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F64DD1A-579E-4788-88B9-9582147B092E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F64DD1A-579E-4788-88B9-9582147B092E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F150F8C8-CE0F-4E42-BED5-939E75D89B44}
+	EndGlobalSection
+EndGlobal
