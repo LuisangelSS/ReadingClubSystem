@@ -2,6 +2,9 @@
 using ReadingClubSystem.Domain.Entities;
 using ReadingClubSystem.Api.Data;
 using Microsoft.EntityFrameworkCore;
+using System.Text.Json.Serialization;
+using System.Text.Json;
+using ReadingClubSystem.Domain.ViewModels;
 
 namespace ReadingClubSystem.Api.Controllers
 {
@@ -17,44 +20,90 @@ namespace ReadingClubSystem.Api.Controllers
         }
 
         // Método para obtener todas las recomendaciones
-        [HttpGet]
+        [HttpGet("listado")]
         public async Task<ActionResult<IEnumerable<Recomendacion>>> GetRecomendaciones()
         {
-            return await _context.Recomendaciones.ToListAsync();
+            var recomendaciones = await _context.Recomendaciones
+                .Include(r => r.Usuario)
+                .Include(r => r.Libro)
+                .Include(r => r.Club)
+                .ToListAsync();
+
+            var options = new JsonSerializerOptions
+            {
+                ReferenceHandler = ReferenceHandler.Preserve,
+                WriteIndented = true
+            };
+
+            return new JsonResult(recomendaciones, options);
         }
 
-        // Método para obtener una recomendación específica por ID
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Recomendacion>> GetRecomendacion(int id)
+        [HttpGet("detalle/{id}")]
+        public async Task<ActionResult<Recomendacion>> GetRecomendacionById(int id)
         {
-            var recomendacion = await _context.Recomendaciones.FindAsync(id);
+            var recomendacion = await _context.Recomendaciones
+                .Include(r => r.Usuario)
+                .Include(r => r.Libro)
+                .Include(r => r.Club)
+                .FirstOrDefaultAsync(r => r.Id == id);
 
             if (recomendacion == null)
             {
                 return NotFound();
             }
 
-            return recomendacion;
+            var options = new JsonSerializerOptions
+            {
+                ReferenceHandler = ReferenceHandler.Preserve,
+                WriteIndented = true
+            };
+
+            return new JsonResult(recomendacion, options);
         }
 
-        // Método para crear una nueva recomendación
-        [HttpPost]
-        public async Task<ActionResult<Recomendacion>> PostRecomendacion(Recomendacion recomendacion)
+        //crear
+        [HttpPost("crear")]
+        public async Task<ActionResult<Recomendacion>> PostRecomendacion(RecomendacionDto recomendacionDto)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            var recomendacion = new Recomendacion
+            {
+                UsuarioId = recomendacionDto.UsuarioId,
+                LibroId = recomendacionDto.LibroId,
+                ClubId = recomendacionDto.ClubId,
+                Fecha = recomendacionDto.Fecha
+            };
+
             _context.Recomendaciones.Add(recomendacion);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetRecomendacion", new { id = recomendacion.Id }, recomendacion);
+            return CreatedAtAction(nameof(GetRecomendacionById), new { id = recomendacion.Id }, recomendacion);
         }
 
-        // Método para actualizar una recomendación existente
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutRecomendacion(int id, Recomendacion recomendacion)
+
+        // PUT: api/Recomendacion/actualizar/5
+        [HttpPut("actualizar/{id}")]
+        public async Task<IActionResult> PutRecomendacion(int id, RecomendacionDto recomendacionDto)
         {
-            if (id != recomendacion.Id)
+            if (id != recomendacionDto.Id)
             {
                 return BadRequest();
             }
+
+            var recomendacion = await _context.Recomendaciones.FindAsync(id);
+            if (recomendacion == null)
+            {
+                return NotFound();
+            }
+
+            recomendacion.UsuarioId = recomendacionDto.UsuarioId;
+            recomendacion.LibroId = recomendacionDto.LibroId;
+            recomendacion.ClubId = recomendacionDto.ClubId;
+            recomendacion.Fecha = recomendacionDto.Fecha;
 
             _context.Entry(recomendacion).State = EntityState.Modified;
 
@@ -64,7 +113,7 @@ namespace ReadingClubSystem.Api.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!_context.Recomendaciones.Any(e => e.Id == id))
+                if (!RecomendacionExists(id))
                 {
                     return NotFound();
                 }
@@ -77,8 +126,14 @@ namespace ReadingClubSystem.Api.Controllers
             return NoContent();
         }
 
+        private bool RecomendacionExists(int id)
+        {
+            return _context.Recomendaciones.Any(e => e.Id == id);
+        }
+
+
         // Método para eliminar una recomendación
-        [HttpDelete("{id}")]
+        [HttpDelete("eliminar/{id}")]
         public async Task<IActionResult> DeleteRecomendacion(int id)
         {
             var recomendacion = await _context.Recomendaciones.FindAsync(id);
@@ -86,10 +141,8 @@ namespace ReadingClubSystem.Api.Controllers
             {
                 return NotFound();
             }
-
             _context.Recomendaciones.Remove(recomendacion);
             await _context.SaveChangesAsync();
-
             return NoContent();
         }
     }

@@ -7,4 +7,16 @@
     <RootNamespace>ReadingClubSystem.Web_</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.6" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ReadingClubSystem.Api\ReadingClubSystem.Api.csproj" />
+    <ProjectReference Include="..\ReadingClubSystem.Application\ReadingClubSystem.Application.csproj" />
+    <ProjectReference Include="..\ReadingClubSystem.Domain\ReadingClubSystem.Domain.csproj" />
+    <ProjectReference Include="..\ReadingClubSystem.Infrastructure\ReadingClubSystem.Infrastructure.csproj" />
+    <ProjectReference Include="..\ReadingClubSystem\ReadingClubSystem.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -6,4 +6,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ReadingClubSystem.Api\ReadingClubSystem.Api.csproj" />
+    <ProjectReference Include="..\ReadingClubSystem.Application\ReadingClubSystem.Application.csproj" />
+    <ProjectReference Include="..\ReadingClubSystem.Domain\ReadingClubSystem.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

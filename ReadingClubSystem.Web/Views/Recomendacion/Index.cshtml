@@ -1,0 +1,36 @@
+﻿@model IEnumerable<ReadingClubSystem.Domain.Entities.Recomendacion>
+
+@{
+    ViewData["Title"] = "Lista de Recomendaciones";
+}
+
+<h2>Lista de Recomendaciones</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Usuario</th>
+            <th>Libro</th>
+            <th>Club</th>
+            <th>Fecha</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var recomendacion in Model)
+        {
+            <tr>
+                <td>@recomendacion.Usuario.Nombre</td>
+                <td>@recomendacion.Libro.Titulo</td>
+                <td>@recomendacion.Club.Nombre</td>
+                <td>@recomendacion.Fecha.ToString("yyyy-MM-dd")</td>
+                <td>
+                    <a href="@Url.Action("Edit", new { id = recomendacion.Id })" class="btn btn-primary">Editar</a>
+                    <a href="@Url.Action("Delete", new { id = recomendacion.Id })" class="btn btn-danger">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="@Url.Action("Create")" class="btn btn-success">Crear Nueva Recomendación</a>

@@ -1,0 +1,17 @@
+﻿@model ReadingClubSystem.Domain.Entities.Recomendacion
+
+<h2>Eliminar Recomendación</h2>
+
+<h3>¿Está seguro que desea eliminar esta recomendación?</h3>
+<div>
+    <h4>Usuario: @Model.Usuario.Nombre</h4> 
+    <h4>Libro: @Model.Libro.Titulo</h4> 
+    <h4>Club: @Model.Club.Nombre</h4> 
+    <h4>Fecha: @Model.Fecha</h4>
+</div>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

@@ -1,0 +1,28 @@
+﻿@model IEnumerable<ReadingClubSystem.Domain.Entities.Libro>
+
+<h2>Lista de Libros</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Título</th>
+            <th>Autor</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var libro in Model)
+        {
+            <tr>
+                <td>@libro.Titulo</td>
+                <td>@libro.Autor</td>
+                <td>
+                    <a href="@Url.Action("Edit", new { id = libro.Id })" class="btn btn-primary">Editar</a>
+                    <a href="@Url.Action("Delete", new { id = libro.Id })" class="btn btn-danger">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="@Url.Action("Create")" class="btn btn-success">Crear Nuevo Libro</a>

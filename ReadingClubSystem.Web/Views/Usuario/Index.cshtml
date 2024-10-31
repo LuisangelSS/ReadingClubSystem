@@ -1,0 +1,28 @@
+﻿@model IEnumerable<ReadingClubSystem.Domain.Entities.Usuario>
+
+<h2>Lista de Usuarios</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var usuario in Model)
+        {
+            <tr>
+                <td>@usuario.Nombre</td>
+                <td>@usuario.Email</td>
+                <td>
+                    <a href="@Url.Action("Edit", new { id = usuario.Id })" class="btn btn-primary">Editar</a>
+                    <a href="@Url.Action("Delete", new { id = usuario.Id })" class="btn btn-danger">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="@Url.Action("Create")" class="btn btn-success">Crear Nuevo Usuario</a>

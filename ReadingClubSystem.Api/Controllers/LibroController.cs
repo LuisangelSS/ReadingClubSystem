@@ -17,47 +17,42 @@ namespace ReadingClubSystem.Api.Controllers
         }
 
         // Método para obtener todos los libros
-        [HttpGet]
+        [HttpGet("listado")]
         public async Task<ActionResult<IEnumerable<Libro>>> GetLibros()
         {
             return await _context.Libros.ToListAsync();
         }
 
         // Método para obtener un libro específico por ID
-        [HttpGet("{id}")]
+        [HttpGet("detalle/{id}")]
         public async Task<ActionResult<Libro>> GetLibro(int id)
         {
             var libro = await _context.Libros.FindAsync(id);
-
             if (libro == null)
             {
                 return NotFound();
             }
-
             return libro;
         }
 
         // Método para crear un nuevo libro
-        [HttpPost]
+        [HttpPost("crear")]
         public async Task<ActionResult<Libro>> PostLibro(Libro libro)
         {
             _context.Libros.Add(libro);
             await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetLibro", new { id = libro.Id }, libro);
+            return CreatedAtAction(nameof(GetLibro), new { id = libro.Id }, libro);
         }
 
         // Método para actualizar un libro existente
-        [HttpPut("{id}")]
+        [HttpPut("actualizar/{id}")]
         public async Task<IActionResult> PutLibro(int id, Libro libro)
         {
             if (id != libro.Id)
             {
                 return BadRequest();
             }
-
             _context.Entry(libro).State = EntityState.Modified;
-
             try
             {
                 await _context.SaveChangesAsync();
@@ -73,12 +68,11 @@ namespace ReadingClubSystem.Api.Controllers
                     throw;
                 }
             }
-
             return NoContent();
         }
 
         // Método para eliminar un libro
-        [HttpDelete("{id}")]
+        [HttpDelete("eliminar/{id}")]
         public async Task<IActionResult> DeleteLibro(int id)
         {
             var libro = await _context.Libros.FindAsync(id);
@@ -86,10 +80,8 @@ namespace ReadingClubSystem.Api.Controllers
             {
                 return NotFound();
             }
-
             _context.Libros.Remove(libro);
             await _context.SaveChangesAsync();
-
             return NoContent();
         }
     }

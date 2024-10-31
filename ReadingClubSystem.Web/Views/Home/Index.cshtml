@@ -1,8 +1,54 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="text-center centered-container">
+    <h1 id="dynamicText" class="display-4"></h1>
+    <p class="lead">ReadingClubSystem es tu plataforma para conectar con otros amantes de la lectura, unirte a clubes de lectura, descubrir 
+        libros recomendados y participar en discusiones apasionantes sobre tus libros favoritos</p>
 </div>
+
+<style>
+    .centered-container {
+        background-color: #e3f2fd;
+        padding: 50px 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        max-width: 800px;
+        margin: auto;
+    }
+
+        .centered-container h1 {
+            font-size: 3em;
+            text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        .centered-container p.lead {
+            font-size: 1.5em;
+            color: #333;
+        }
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var i = 0;
+        var text = "Bienvenido a ReadingClubSystem";
+        var speed = 100;
+
+        function typeWriter() {
+            if (i < text.length) {
+                document.getElementById("dynamicText").innerHTML += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, speed);
+            }
+        }
+
+        typeWriter();
+    });
+</script>

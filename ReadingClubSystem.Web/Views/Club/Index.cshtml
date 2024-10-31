@@ -1,0 +1,28 @@
+﻿@model IEnumerable<ReadingClubSystem.Domain.Entities.Club>
+
+<h2>Lista de Clubes</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var club in Model)
+        {
+            <tr>
+                <td>@club.Nombre</td>
+                <td>@club.Descripcion</td>
+                <td>
+                    <a href="@Url.Action("Edit", new { id = club.Id })" class="btn btn-primary">Editar</a>
+                    <a href="@Url.Action("Delete", new { id = club.Id })" class="btn btn-danger">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="@Url.Action("Create")" class="btn btn-success">Crear Nuevo Club</a>

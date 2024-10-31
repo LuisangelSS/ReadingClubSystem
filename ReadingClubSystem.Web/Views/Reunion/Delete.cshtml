@@ -1,0 +1,16 @@
+﻿@model ReadingClubSystem.Domain.Entities.Reunion
+
+<h2>Eliminar reunion</h2>
+
+<h3>¿Está seguro que desea eliminar esta reunion?</h3>
+<div>
+    <h4>Club: @Model.Club?.Nombre</h4>
+    <h4>Fecha: @Model.Fecha</h4>
+    <h4>Fecha: @Model.Tema</h4>
+</div>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Eliminar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

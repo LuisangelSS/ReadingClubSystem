@@ -3,17 +3,22 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35122.118
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReadingClubSystem", "ReadingClubSystem.csproj", "{8B81F9AE-3F58-4815-AB39-CC1F824A9527}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReadingClubSystem", "ReadingClubSystem.csproj", "{8B81F9AE-3F58-4815-AB39-CC1F824A9527}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReadingClubSystem.Domain", "..\ReadingClubSystem.Domain\ReadingClubSystem.Domain.csproj", "{E13B6505-D85D-4CB5-93D3-41D01C44379A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReadingClubSystem.Domain", "..\ReadingClubSystem.Domain\ReadingClubSystem.Domain.csproj", "{E13B6505-D85D-4CB5-93D3-41D01C44379A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReadingClubSystem.Web", "..\ReadingClubSystem.Web\ReadingClubSystem.Web.csproj", "{E4C9C01F-6DA1-4458-903D-A40A89DC984C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReadingClubSystem.Web", "..\ReadingClubSystem.Web\ReadingClubSystem.Web.csproj", "{E4C9C01F-6DA1-4458-903D-A40A89DC984C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{04C60CA1-170A-42B3-BFE6-5E3C6B6EEA54} = {04C60CA1-170A-42B3-BFE6-5E3C6B6EEA54}
+		{8B81F9AE-3F58-4815-AB39-CC1F824A9527} = {8B81F9AE-3F58-4815-AB39-CC1F824A9527}
+		{E13B6505-D85D-4CB5-93D3-41D01C44379A} = {E13B6505-D85D-4CB5-93D3-41D01C44379A}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReadingClubSystem.Api", "..\ReadingClubSystem.Api\ReadingClubSystem.Api.csproj", "{04C60CA1-170A-42B3-BFE6-5E3C6B6EEA54}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReadingClubSystem.Api", "..\ReadingClubSystem.Api\ReadingClubSystem.Api.csproj", "{04C60CA1-170A-42B3-BFE6-5E3C6B6EEA54}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReadingClubSystem.Infrastructure", "..\ReadingClubSystem.Infrastructure\ReadingClubSystem.Infrastructure.csproj", "{C414FDB7-4DBB-4739-A2D0-8B2AFC793EB2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReadingClubSystem.Infrastructure", "..\ReadingClubSystem.Infrastructure\ReadingClubSystem.Infrastructure.csproj", "{C414FDB7-4DBB-4739-A2D0-8B2AFC793EB2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReadingClubSystem.Application", "..\ReadingClubSystem.Application\ReadingClubSystem.Application.csproj", "{2F64DD1A-579E-4788-88B9-9582147B092E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReadingClubSystem.Application", "..\ReadingClubSystem.Application\ReadingClubSystem.Application.csproj", "{2F64DD1A-579E-4788-88B9-9582147B092E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -16,15 +16,15 @@ namespace ReadingClubSystem.Api.Controllers
             _context = context;
         }
 
-        // GET: api/Club
-        [HttpGet]
+        // GET: api/listado/Club
+        [HttpGet("listado")]
         public async Task<ActionResult<IEnumerable<Club>>> GetClubes()
         {
             return await _context.Clubes.ToListAsync();
         }
 
-        // GET: api/Club/5
-        [HttpGet("{id}")]
+        // GET: api/Club/detalle/5
+        [HttpGet("detalle/{id}")]
         public async Task<ActionResult<Club>> GetClub(int id)
         {
             var club = await _context.Clubes.FindAsync(id);
@@ -35,8 +35,8 @@ namespace ReadingClubSystem.Api.Controllers
             return club;
         }
 
-        // POST: api/Club
-        [HttpPost]
+        // POST: api/crear/Club
+        [HttpPost("crear")]
         public async Task<ActionResult<Club>> PostClub(Club club)
         {
             _context.Clubes.Add(club);
@@ -44,15 +44,14 @@ namespace ReadingClubSystem.Api.Controllers
             return CreatedAtAction(nameof(GetClub), new { id = club.Id }, club);
         }
 
-        // PUT: api/Club/5
-        [HttpPut("{id}")]
+        // PUT: api/actualizar/Club/5
+        [HttpPut("actualizar/{id}")]
         public async Task<IActionResult> PutClub(int id, Club club)
         {
             if (id != club.Id)
             {
                 return BadRequest();
             }
-
             _context.Entry(club).State = EntityState.Modified;
             try
             {
@@ -69,12 +68,11 @@ namespace ReadingClubSystem.Api.Controllers
                     throw;
                 }
             }
-
             return NoContent();
         }
 
-        // DELETE: api/Club/5
-        [HttpDelete("{id}")]
+        // DELETE: api/eliminar/Club/5
+        [HttpDelete("eliminar/{id}")]
         public async Task<IActionResult> DeleteClub(int id)
         {
             var club = await _context.Clubes.FindAsync(id);
@@ -82,10 +80,8 @@ namespace ReadingClubSystem.Api.Controllers
             {
                 return NotFound();
             }
-
             _context.Clubes.Remove(club);
             await _context.SaveChangesAsync();
-
             return NoContent();
         }
 

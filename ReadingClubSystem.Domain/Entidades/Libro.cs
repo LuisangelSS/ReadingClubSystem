@@ -12,7 +12,7 @@ namespace ReadingClubSystem.Domain.Entities
         public string Titulo { get; set; }
         public string Autor { get; set; }
 
-        public List<Recomendacion> Recomendaciones { get; set; }
+        public List<Recomendacion> Recomendaciones { get; set; } = new List<Recomendacion>();
     }
 }
 

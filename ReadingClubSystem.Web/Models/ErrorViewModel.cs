@@ -6,4 +6,5 @@ namespace ReadingClubSystem.Web_.Models
 
         public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
     }
+
 }

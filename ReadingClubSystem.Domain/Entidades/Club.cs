@@ -13,8 +13,8 @@ namespace ReadingClubSystem.Domain.Entities
         public string Descripcion { get; set; }
 
         // Relación con los usuarios del club
-        public List<Usuario> Miembros { get; set; }
-        public List<Reunion> Reuniones { get; set; }
+        public List<Usuario> Miembros { get; set; } = new List<Usuario>();  
+        public List<Reunion> Reuniones { get; set; } = new List<Reunion>();
     }
 }
 
