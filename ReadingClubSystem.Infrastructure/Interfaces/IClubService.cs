@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using ReadingClubSystem.Domain.Entities;
 
-namespace ReadingClubSystem.Web.Services.Interfaces
+namespace ReadingClubSystem.Infrastructure.Interfaces
 {
     public interface IClubService
     {

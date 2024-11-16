@@ -1,9 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using ReadingClubSystem.Web.Services.Interfaces;
+using ReadingClubSystem.Infrastructure.Interfaces;
 using ReadingClubSystem.Domain.Entities;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using ReadingClubSystem.Web.Services;
 using ReadingClubSystem.Domain.ViewModels;
 
 namespace ReadingClubSystem.Web.Controllers

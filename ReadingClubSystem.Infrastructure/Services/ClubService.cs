@@ -5,9 +5,9 @@ using System.Text.Json.Serialization;
 using System.Text.Json;
 using System.Threading.Tasks;
 using ReadingClubSystem.Domain.Entities;
-using ReadingClubSystem.Web.Services.Interfaces;
+using ReadingClubSystem.Infrastructure.Interfaces;
 
-namespace ReadingClubSystem.Web.Services
+namespace ReadingClubSystem.Infrastructure.Services
 {
     public class ClubService : IClubService
     {

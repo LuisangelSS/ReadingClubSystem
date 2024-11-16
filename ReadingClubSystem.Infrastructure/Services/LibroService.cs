@@ -3,11 +3,11 @@ using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
 using ReadingClubSystem.Domain.Entities;
-using ReadingClubSystem.Web.Services.Interfaces;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using ReadingClubSystem.Infrastructure.Interfaces;
 
-namespace ReadingClubSystem.Web.Services
+namespace ReadingClubSystem.Infrastructure.Services
 {
     public class LibroService : ILibroService
     {

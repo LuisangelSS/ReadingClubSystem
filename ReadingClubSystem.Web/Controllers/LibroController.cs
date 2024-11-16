@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using ReadingClubSystem.Web.Services.Interfaces;
+using ReadingClubSystem.Infrastructure.Interfaces;
 using ReadingClubSystem.Domain.Entities;
 using System.Threading.Tasks;
 

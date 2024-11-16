@@ -1,5 +1,7 @@
-using ReadingClubSystem.Web.Services.Interfaces;
-using ReadingClubSystem.Web.Services;
+//using ReadingClubSystem.Web.Services.Interfaces;
+//using ReadingClubSystem.Web.Services;
+using ReadingClubSystem.Infrastructure.Interfaces;
+using ReadingClubSystem.Infrastructure.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 

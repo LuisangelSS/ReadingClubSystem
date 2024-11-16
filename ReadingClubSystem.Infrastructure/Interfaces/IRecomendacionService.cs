@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using ReadingClubSystem.Domain.Entities;
 using ReadingClubSystem.Domain.ViewModels;
 
-namespace ReadingClubSystem.Web.Services.Interfaces
+namespace ReadingClubSystem.Infrastructure.Interfaces
 {
     public interface IRecomendacionService
     {
